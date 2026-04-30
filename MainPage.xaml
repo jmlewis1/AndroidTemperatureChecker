@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AndroidTemperatureChecker.MainPage"
+             Title="Temperatures"
+             BackgroundColor="{StaticResource PageBackground}">
+
+    <RefreshView x:Name="Refresher" Refreshing="OnRefreshing">
+        <ScrollView>
+            <VerticalStackLayout Padding="16" Spacing="12">
+
+                <Label Text="Device Temperatures"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource TextPrimary}" />
+
+                <Label x:Name="LastUpdatedLabel"
+                       FontSize="12"
+                       TextColor="{StaticResource TextSecondary}" />
+
+                <CollectionView x:Name="ReadingsList" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Stroke="Transparent"
+                                    BackgroundColor="{StaticResource CardBackground}"
+                                    StrokeShape="RoundRectangle 12"
+                                    Padding="14"
+                                    Margin="0,4">
+                                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                    <Label Grid.Column="0" Grid.Row="0"
+                                           Text="{Binding Name}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource TextPrimary}" />
+                                    <Label Grid.Column="0" Grid.Row="1"
+                                           Text="{Binding Detail}"
+                                           FontSize="12"
+                                           TextColor="{StaticResource TextSecondary}" />
+                                    <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                                           Text="{Binding Display}"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"
+                                           TextColor="{StaticResource TextPrimary}" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <Label Text="No readable temperature sensors found on this device."
+                               TextColor="{StaticResource TextSecondary}"
+                               HorizontalOptions="Center"
+                               Margin="0,40,0,0" />
+                    </CollectionView.EmptyView>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </RefreshView>
+</ContentPage>
