@@ -2,13 +2,21 @@ namespace AndroidTemperatureChecker;
 
 public partial class App : Application
 {
-    public App(MainPage mainPage)
+    private readonly IServiceProvider _services;
+
+    public App(IServiceProvider services)
     {
         InitializeComponent();
-        MainPage = new NavigationPage(mainPage)
+        _services = services;
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        var mainPage = _services.GetRequiredService<MainPage>();
+        return new Window(new NavigationPage(mainPage)
         {
             BarBackgroundColor = Color.FromArgb("#1E1E26"),
             BarTextColor = Colors.White,
-        };
+        });
     }
 }
