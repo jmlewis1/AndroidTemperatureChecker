@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="456" height="456" viewBox="0 0 456 456">
+  <g fill="#FFFFFF" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- thermometer body -->
+    <path d="M228 96 a32 32 0 0 1 32 32 v160 a64 64 0 1 1 -64 0 v-160 a32 32 0 0 1 32 -32 z"
+          fill="none" stroke-width="14"/>
+    <!-- mercury bulb -->
+    <circle cx="228" cy="320" r="40" fill="#FFFFFF" stroke="none"/>
+    <!-- mercury column -->
+    <rect x="220" y="180" width="16" height="120" rx="8" fill="#FFFFFF" stroke="none"/>
+    <!-- tick marks -->
+    <line x1="268" y1="150" x2="288" y2="150" stroke-width="10"/>
+    <line x1="268" y1="190" x2="288" y2="190" stroke-width="10"/>
+    <line x1="268" y1="230" x2="288" y2="230" stroke-width="10"/>
+    <line x1="268" y1="270" x2="288" y2="270" stroke-width="10"/>
+  </g>
+</svg>
